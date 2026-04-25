@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>西兰花 | 中早熟杂交一代品种宣传海报</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e2f0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            padding: 30px;
+        }
+
+        /* 海报主容器 宽1500px 高2000px 模拟1.5m*2m */
+        .poster {
+            width: 1500px;
+            min-height: 2000px;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 30px 50px rgba(0, 20, 0, 0.25);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        /* 装饰绿条 */
+        .header-badge {
+            background: #1c5c2e;
+            height: 18px;
+            width: 100%;
+        }
+
+        /* 主要内容 */
+        .content {
+            flex: 1;
+            padding: 30px 40px 35px 40px;
+        }
+
+        /* 品牌 + 标题区域 */
+        .brand {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 2px solid #d0e6bc;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .company {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #2f6b2f;
+            background: #ecf9e6;
+            padding: 5px 12px;
+            border-radius: 40px;
+        }
+
+        .variety-tag {
+            font-size: 14px;
+            color: #4a6741;
+            background: #f5f9ef;
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+        .main-title {
+            margin: 20px 0 12px 0;
+            text-align: center;
+        }
+
+        .main-title h1 {
+            font-size: 54px;
+            font-weight: 800;
+            color: #194d29;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .main-title .sub {
+            font-size: 22px;
+            font-weight: 500;
+            color: #5b8c50;
+            background: #f0f7ea;
+            display: inline-block;
+            padding: 6px 22px;
+            border-radius: 60px;
+            margin-top: 12px;
+        }
+
+        /* 特性框 grid */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin: 32px 0 30px;
+            background: #fafef5;
+            border-radius: 40px;
+            padding: 28px 30px;
+            border: 1px solid #d8e8ce;
+        }
+
+        .feature-card {
+            flex: 1;
+            min-width: 180px;
+            text-align: center;
+        }
+
+        .feature-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: #2b7a3e;
+            margin-bottom: 8px;
+        }
+
+        .feature-label {
+            font-weight: 700;
+            font-size: 18px;
+            color: #1e3a2a;
+            border-bottom: 2px solid #cbe6bc;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+        }
+
+        .feature-text {
+            font-size: 16px;
+            color: #2c4b2a;
+            line-height: 1.45;
+            font-weight: 500;
+        }
+
+        /* 三图片区域 */
+        .image-gallery {
+            display: flex;
+            justify-content: space-between;
+            gap: 28px;
+            margin: 25px 0 35px;
+        }
+
+        .img-card {
+            flex: 1;
+            background: #f8fef2;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            border: 1px solid #e2f0d3;
+        }
+
+        .img-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .img-card img {
+            width:90%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 3px solid #9acc7d;
+        }
+
+        .img-caption {
+            padding: 15px 12px;
+            text-align: center;
+            font-weight: 600;
+            color: #2b623b;
+            background: white;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        /* 亮点文案 */
+        .yield-box {
+            background: linear-gradient(135deg, #e9f5e3 0%, #d5eccc 100%);
+            border-radius: 60px;
+            padding: 20px 30px;
+            margin: 20px 0 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .yield-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .yield-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: #125c28;
+        }
+
+        .yield-label {
+            font-size: 17px;
+            font-weight: 600;
+            color: #2a5c34;
+        }
+
+        /* 双列布局 栽培+适应性 */
+        .info-split {
+            display: flex;
+            gap: 40px;
+            margin: 20px 0 30px;
+        }
+
+        .cultivation, .adaptation {
+            flex: 1;
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 18px 24px;
+            box-shadow: 0 6px 14px rgba(96, 108, 56, 0.08);
+            border: 1px solid #e2efd4;
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1e6b34;
+            border-left: 8px solid #73b35c;
+            padding-left: 18px;
+            margin-bottom: 20px;
+        }
+
+        .cultivation p, .adaptation p {
+            font-size: 16px;
+            line-height: 1.55;
+            color: #1f3822;
+            margin-bottom: 14px;
+            font-weight: 500;
+        }
+
+        .highlight {
+            background: #fef9e3;
+            padding: 12px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            color: #a5671a;
+            display: inline-block;
+            margin-top: 6px;
+            font-size: 16px;
+            border-left: 4px solid #e3b23c;
+        }
+
+        .favorite-quote {
+            background: #eef4e0;
+            border-radius: 28px;
+            padding: 18px 24px;
+            margin: 20px 0 16px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: #2a6e2a;
+            box-shadow: inset 0 0 0 1px #dcedbc, 0 5px 12px rgba(0,0,0,0.02);
+        }
+
+        .quote-icon {
+            font-size: 28px;
+            margin-right: 10px;
+        }
+
+        /* 底部信息 */
+        .footer-info {
+            margin-top: 25px;
+            border-top: 2px dashed #c2ddae;
+            padding: 22px 20px 12px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            font-size: 12px;
+            color: #3a6240;
+            background: #fefef5;
+            border-radius: 28px;
+        }
+
+        .legal {
+            flex: 2;
+            line-height: 1.5;
+        }
+
+        .warning {
+            flex: 1.5;
+            background: #fff6e8;
+            padding: 8px 12px;
+            border-radius: 20px;
+            border-left: 3px solid #d94f30;
+            font-weight: 500;
+        }
+
+        .warning strong {
+            color: #ba4a2c;
+        }
+
+        .small-data {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .badge {
+            background: #e2efda;
+            padding: 3px 10px;
+            border-radius: 40px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1520px) {
+            body {
+                transform: scale(0.98);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="poster">
+    <div class="header-badge"></div>
+    <div class="content">
+        <!-- 品牌识别行 -->
+        <div class="brand">
+            <span class="company">进口一代杂交种</span>
+            <span class="variety-tag">大田用种 · 净含量 10克</span>
+        </div>
+
+        <!-- 主标题 -->
+        <div class="main-title">
+            <h1>西兰花</h1>
+            <div class="sub">中早熟 | 耐热优势显著 | 高圆蘑菇型花球</div>
+        </div>
+
+        <!-- 核心特性卡片 -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-number">60-65天</div>
+                <div class="feature-label">秋季定植</div>
+                <div class="feature-text">采收期短，上市早，效益高</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-number">≈600g</div>
+                <div class="feature-label">适采单球重</div>
+                <div class="feature-text">青绿色，蜡粉少，蕾粒细嫩</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-number">高产稳产</div>
+                <div class="feature-label">科学管理</div>
+                <div class="feature-text">一般亩产3000斤左右，亩产可达4500斤以上，商品性一流</div>
+            </div>
+        </div>
+
+        <!-- 三张图片区域  (高清西兰花实拍，展示田间、花球、丰收) -->
+        <div class="image-gallery">
+            <div class="img-card">
+                <img src="images/3.jpg",alt="西兰花旺盛田间长势">
+                <div class="img-caption">🌱 田间表现 · 生长势强 侧枝极少</div>
+            </div>
+            <div class="img-card">
+                <img src="images/2.jpg" alt="花球特写青绿紧实">
+                <div class="img-caption">🥦 花球青绿 · 高圆蘑菇型 蕾粒细腻</div>
+            </div>
+            <div class="img-card">
+                <img src="images/1.jpg" alt="丰收采摘场景">
+                <div class="img-caption">📦 喜获丰收 · 整齐度高 商品性卓越</div>
+            </div>
+        </div>
+
+
+        <!-- 产量表现 & 单球重醒目栏 -->
+        <div class="yield-box">
+            <div class="yield-item">
+                <div class="yield-number">3000~4500斤/亩</div>
+                <div class="yield-label">一般亩产3000斤 · 科学管理可达4500斤+</div>
+            </div>
+            <div class="yield-item">
+                <div class="yield-number">⚖️ 600g+</div>
+                <div class="yield-label">适采期单球重约600克，匀称饱满</div>
+            </div>
+            <div class="yield-item">
+                <div class="yield-number">⭐ 商品性极佳</div>
+                <div class="yield-label">花球紧实，球面平整，耐运输</div>
+            </div>
+        </div>
+
+        <!-- 栽培措施 + 适应性 左右分栏-->
+        <div class="info-split">
+            <div class="cultivation">
+                <div class="section-title">📖 主要栽培措施</div>
+                <p>🌿 生长适温18-25℃，喜凉爽干燥，避免连作及多雨潮湿。建议育苗移栽，<strong>每亩定植2800株左右</strong>，株行距40×50厘米。</p>
+                <p>💧 施足底肥，增施有机肥，适当补充微量元素（硼、镁等），注意防治黑腐病、小菜蛾及蚜虫，保持通风排涝。</p>
+                <p>⏱️ 秋季定植后60-65天适时采收，花球充分膨大未散球前为佳。潮湿多雨天气建议高畦栽培。</p>
+                <div class="highlight">✅ 科学水肥管理 + 及时防病 = 高品质花球</div>
+            </div>
+            <div class="adaptation">
+                <div class="section-title">📍 适应性 & 推荐播期</div>
+                <p><strong>河南中部平原地区（露地）：</strong> 7月10日 — 7月25日播种，长势优异，连续两年在尚村岗表现突出。</p>
+                <p><strong>山东地区春季大棚：</strong> 1月10日 — 1月20日播种，抢早上市收益高。</p>
+                <p>长江流域及相似气候区请根据小面积试种确定最佳播期，本品耐热性较好，也适合部分高海拔夏秋种植区。</p>
+                <div class="favorite-quote">
+                    <span class="quote-icon">🏆</span> “尚村岗已连续两年种植，深受采购商们的喜爱！”<span class="quote-icon">❤️</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 风险提示及质量指标 + 法律说明(重要安全警告) -->
+        <div class="footer-info">
+            <div class="legal">
+                <div style="font-weight:800; margin-bottom:6px;">📋 质量指标及合规信息</div>
+                <div class="small-data">
+                    <span class="badge">纯度 ≥90.0%</span>
+                    <span class="badge">净度 ≥99.0%</span>
+                    <span class="badge">发芽率 ≥85%</span>
+                    <span class="badge">水分 ≤7.5%</span>
+                </div>
+                <div style="margin-top: 10px; font-size: 11px; line-height:1.4">
+                    进出口贸易许可证编号：03612505 | 种子生产经营许可证号：B、C、D（粤）农种许字（2018）第0001号<br>
+                    引进种子检疫审批单号：按相关规定执行 | 质量保证期：12个月（检测日期见封口）<br>
+                    ℹ️ 本品种为杂交一代，不可再繁殖留种栽培。图片与实物可能有差异，请以实际种植表现为准。
+                </div>
+            </div>
+            <div class="warning">
+                <strong>⚠️ 风险安全提示（重要）</strong><br>
+                • 本种子以2%新农科技药剂（用量0.3%）处理，包衣种严禁食用！<br>
+                • 误食可引起恶心、呕吐、腹泻等症状；皮肤接触可能瘙痒或湿疹，误触眼睛立即清水冲洗并及时就医。<br>
+                • 种子须存放于阴凉干燥处（10-18℃，相对湿度＜50%），播种后剩余种请远离儿童、宠物。<br>
+                • 购买后22天内（播种前）如有疑问请致电公司客服热线，公司将提供农技支持。
+            </div>
+        </div>
+        <div style="text-align: center; font-size: 36px; color: #7c9772; margin-top: 28px; border-top: 1px solid #e1f0d2; padding-top: 15px;">
+            🌟 联系电话：赵：15294795143 ； 王：17801168221 🌟
+        </div>
+    </div>
+    <!-- 封底装饰条 -->
+    <div style="height: 8px; background: linear-gradient(90deg, #499c46, #b8de8c, #367a2f);"></div>
+</div>
+</body>
+</html>
